@@ -12,17 +12,4 @@ parameters:
     locale: en
     secret: 5838ec45da91da14940abc9947ce0af4f9d3e792
     database_path: null  
-    parameters:
-    database_driver: pdo_mysql
-    database_host: 127.0.0.1
-    database_port: null
-    database_name: project_jobportal
-    database_user: root
-    database_password: Numerico_2013
-    mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
-    locale: en
-    secret: 5838ec45da91da14940abc9947ce0af4f9d3e792
-    database_path: null 
+    
