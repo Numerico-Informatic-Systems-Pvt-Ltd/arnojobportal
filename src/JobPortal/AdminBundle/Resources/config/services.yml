@@ -1,0 +1,7 @@
+parameters:
+#    job_portal_admin.example.class: JobPortal\AdminBundle\Example
+
+services:
+#    job_portal_admin.example:
+#        class: %job_portal_admin.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

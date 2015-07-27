@@ -1,0 +1,16 @@
+job_portal_admin_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: JobPortalAdminBundle:Default:index }
+
+_login_index:
+    pattern: /login
+    defaults: { _controller: JobPortalAdminBundle:Login:index }
+    
+
+_logout_index:
+    pattern: /logout
+    defaults: { _controller: JobPortalAdminBundle:Logout:index }
+
+_dahboard_index:
+    pattern: /dashboard
+    defaults: { _controller: JobPortalAdminBundle:Dashboard:index }

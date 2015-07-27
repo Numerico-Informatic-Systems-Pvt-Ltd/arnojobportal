@@ -1,0 +1,8 @@
+job_portal_front:
+    resource: "@JobPortalFrontBundle/Resources/config/routing.yml"
+    prefix:   /
+
+job_portal_admin:
+    resource: "@JobPortalAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
