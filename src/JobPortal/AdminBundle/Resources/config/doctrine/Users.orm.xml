@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="JobPortal\AdminBundle\Entity\Users" table="users">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="email" type="string" column="email" length="255" nullable="false"/>
+    <field name="phone" type="string" column="phone" length="255" nullable="false"/>
+    <field name="address" type="text" column="address" nullable="false"/>
+    <field name="pinCode" type="string" column="pin_code" length="255" nullable="false"/>
+    <field name="city" type="string" column="city" length="255" nullable="false"/>
+    <field name="country" type="string" column="country" length="255" nullable="false"/>
+    <field name="dob" type="date" column="dob" nullable="false"/>
+    <field name="password" type="string" column="password" length="255" nullable="false"/>
+    <field name="image" type="text" column="image" nullable="false"/>
+    <field name="cv" type="text" column="cv" nullable="false"/>
+    <field name="forgetPasswordOtp" type="integer" column="forget_password_otp" nullable="false"/>
+    <field name="facebookId" type="string" column="facebook_id" length="255" nullable="false"/>
+    <field name="status" type="boolean" column="status" nullable="false"/>
+    <field name="isDeleted" type="boolean" column="is_deleted" nullable="false"/>
+  </entity>
+</doctrine-mapping>
