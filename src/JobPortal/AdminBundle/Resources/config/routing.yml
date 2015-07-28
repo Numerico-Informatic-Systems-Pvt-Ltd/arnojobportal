@@ -14,3 +14,11 @@ _logout_index:
 _dahboard_index:
     pattern: /dashboard
     defaults: { _controller: JobPortalAdminBundle:Dashboard:index }
+    
+_admin_profile_update:
+    pattern: /adminUpdate
+    defaults: { _controller: JobPortalAdminBundle:Dashboard:adminUpdate }
+    
+_admin_changePassword:
+    pattern: /adminChangePassword
+    defaults: { _controller: JobPortalAdminBundle:Dashboard:adminChangePassword }

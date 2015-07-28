@@ -74,7 +74,7 @@
                         <div class="container">
                             <div class="col-lg-12 col-sm-12">
                                 <div class="regis_box login_wrap">
-                                    <h1>Admin Login</h1>
+                                    <h1>Connexion administrateur</h1>
                                     <?php //echo $this->generateUrl('target_route'); ?>
                                     <form action = "<?php echo $view['router']->generate('_login_index') ?>" method = "POST">
                                         <div class="form-group">
