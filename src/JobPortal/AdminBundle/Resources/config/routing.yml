@@ -14,6 +14,22 @@ _logout_index:
 _dahboard_index:
     pattern: /dashboard
     defaults: { _controller: JobPortalAdminBundle:Dashboard:index }
+#routing start by shibu
+_index:
+    pattern:     /categories
+    defaults: { _controller: JobPortalAdminBundle:Categories:index }
+    
+_category_add:
+    pattern:     /addCategory
+    defaults: { _controller: JobPortalAdminBundle:Categories:add }
+
+_category_edit:
+    pattern:     /editCategory
+    defaults: { _controller: JobPortalAdminBundle:Categories:edit }    
+    
+_category_delete:
+    pattern:     /deleteCategory
+    defaults: { _controller: JobPortalAdminBundle:Categories:delete }
     
 _admin_profile_update:
     pattern: /adminUpdate
