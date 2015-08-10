@@ -51,6 +51,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
             array('.foo', '_Foo'),
             array('foo_', 'Foo'),
             array('foo.', 'Foo_'),
+            array('foo\bar', 'Foo_Bar'),
         );
     }
 
@@ -187,6 +188,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($sc->__bar, $sc->get('bar'), '->get() returns the service for the given id');
         $this->assertEquals($sc->__foo_bar, $sc->get('foo_bar'), '->get() returns the service if a get*Method() is defined');
         $this->assertEquals($sc->__foo_baz, $sc->get('foo.baz'), '->get() returns the service if a get*Method() is defined');
+        $this->assertEquals($sc->__foo_baz, $sc->get('foo\\baz'), '->get() returns the service if a get*Method() is defined');
 
         $sc->set('bar', $bar = new \stdClass());
         $this->assertEquals($bar, $sc->get('bar'), '->get() prefers to return a service defined with set() than one defined with a getXXXMethod()');
@@ -226,7 +228,6 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
 
     public function testGetCircularReference()
     {
-
         $sc = new ProjectServiceContainer();
         try {
             $sc->get('circular');
@@ -258,6 +259,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($sc->has('bar'), '->has() returns true if a get*Method() is defined');
         $this->assertTrue($sc->has('foo_bar'), '->has() returns true if a get*Method() is defined');
         $this->assertTrue($sc->has('foo.baz'), '->has() returns true if a get*Method() is defined');
+        $this->assertTrue($sc->has('foo\\baz'), '->has() returns true if a get*Method() is defined');
     }
 
     /**
@@ -270,6 +272,10 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($sc->initialized('foo'), '->initialized() returns true if service is loaded');
         $this->assertFalse($sc->initialized('foo1'), '->initialized() returns false if service is not loaded');
         $this->assertFalse($sc->initialized('bar'), '->initialized() returns false if a service is defined, but not currently loaded');
+        $this->assertFalse($sc->initialized('alias'), '->initialized() returns false if an aliased service is not initialized');
+
+        $sc->set('bar', new \stdClass());
+        $this->assertTrue($sc->initialized('alias'), '->initialized() returns true for alias if aliased service is initialized');
     }
 
     public function testEnterLeaveCurrentScope()
@@ -283,7 +289,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
 
         $container->enterScope('foo');
         $scoped2 = $container->get('scoped');
-        $scoped3 = $container->get('scoped');
+        $scoped3 = $container->get('SCOPED');
         $scopedFoo2 = $container->get('scoped_foo');
 
         $container->leaveScope('foo');

@@ -12,19 +12,11 @@
 namespace Symfony\Component\DependencyInjection\Tests\Loader;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Config\Loader\Loader;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 use Symfony\Component\Config\FileLocator;
 
 class PhpFileLoaderTest extends \PHPUnit_Framework_TestCase
 {
-    protected function setUp()
-    {
-        if (!class_exists('Symfony\Component\Config\Loader\Loader')) {
-            $this->markTestSkipped('The "Config" component is not available');
-        }
-    }
-
     /**
      * @covers Symfony\Component\DependencyInjection\Loader\PhpFileLoader::supports
      */

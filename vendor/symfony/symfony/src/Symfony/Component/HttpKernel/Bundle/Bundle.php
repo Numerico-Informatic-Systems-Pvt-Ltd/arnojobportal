@@ -78,6 +78,10 @@ abstract class Bundle extends ContainerAware implements BundleInterface
             if (class_exists($class)) {
                 $extension = new $class();
 
+                if (!$extension instanceof ExtensionInterface) {
+                    throw new \LogicException(sprintf('Extension %s must implement Symfony\Component\DependencyInjection\Extension\ExtensionInterface.', $class));
+                }
+
                 // check naming convention
                 $expectedAlias = Container::underscore($basename);
                 if ($expectedAlias != $extension->getAlias()) {
@@ -141,7 +145,6 @@ abstract class Bundle extends ContainerAware implements BundleInterface
      */
     public function getParent()
     {
-        return null;
     }
 
     /**
@@ -160,7 +163,7 @@ abstract class Bundle extends ContainerAware implements BundleInterface
         $name = get_class($this);
         $pos = strrpos($name, '\\');
 
-        return $this->name = false === $pos ? $name :  substr($name, $pos + 1);
+        return $this->name = false === $pos ? $name : substr($name, $pos + 1);
     }
 
     /**

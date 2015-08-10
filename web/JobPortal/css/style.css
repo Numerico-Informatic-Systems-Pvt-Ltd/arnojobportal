@@ -35,7 +35,7 @@ a{outline:none;}
 .reg_lt_cont p{font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#999; text-align:left; padding:0px; margin:0px;}
 
 .regis_button_wrap{margin:25px auto; padding:0px; text-align:center;}
-.regis_button{background:#ffa612; width:150px; font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight:normal; color:#fff; text-align:center; border:none; margin:0px; padding:10px 0px;}
+.regis_button{background:#ffa612; width:150px; font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight:normal; color:#fff; text-align:center; border:none; margin:0px; padding:10px 0px; border-radius:2px;}
 .regis_button:hover, .regis_button:focus{background:#cc8104;}
 
 .regis_or{position:relative; height:1px; background:#ccc; margin:15px 0px; padding:0px;}
@@ -58,7 +58,7 @@ a{outline:none;}
 .user_img img{width:150px; height:150px;}
 
 .profile_button_wrap{margin:25px 0px; padding:0px; text-align:left;}
-.profile_button{background:#ffa612; width:130px; font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight:normal; color:#fff; text-align:center; border:none; margin:0px; padding:6px 0px;}
+.profile_button{background:#ffa612; width:130px; font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight:normal; color:#fff; text-align:center; border:none; margin:0px; padding:6px 0px; border-radius:2px;}
 .profile_button:hover, .profile_button:focus{background:#cc8104;}
 
 
@@ -98,8 +98,10 @@ a{outline:none;}
 .search_lt_box .lable{font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#666; text-align:left;}
 .search_lt_box select{width:100%; margin-top:7px;}
 .btn_valider_wrap{border:1px solid #cacaca; padding:0px; text-align:center; width:105px; margin:0px auto;}
-.btn_valider{background:#fff; padding:3px 0px; margin:0px; text-align:center; border:none; width:100%;}
+.btn_valider{background:#fff; padding:3px 0px; margin:0px; text-align:center; border:none; width:100%; border-radius:2px;}
 .btn_valider:hover, .btn_valider:focus{background:#ccc;}
+
+
 
 
 .search_list_head{background:#007bb0; margin:0px; padding:2px 0px;}
@@ -121,7 +123,7 @@ a{outline:none;}
 .search_list .points{font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#007bb0; text-align:left; padding:0px; margin:0px;}
 
 .search_list_button_wrap{margin:25px 0px; padding:0px; text-align:left; float:right;}
-.search_list_button{background:#ffa612; width:210px; font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight:normal; color:#fff; text-align:center; border:none; margin:0px; padding:6px 0px;}
+.search_list_button{background:#ffa612; width:210px; font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight:normal; color:#fff; text-align:center; border:none; margin:0px; padding:6px 0px; border-radius:2px;}
 .search_list_button:hover, .search_list_button:focus{background:#cc8104;}
 
 .page_of{font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#666; text-align:left; padding:0px; margin:7px 0px;}
@@ -129,16 +131,16 @@ a{outline:none;}
 .search_list_wrap h2{font-family:Arial, Helvetica, sans-serif; font-size:18px; color:#666; text-align:left; text-transform:uppercase; border-bottom:1px solid #cacaca; padding:0 0 12px 15px; margin:0px 0px 10px;}
 
 .visite_button_wrap{margin:25px 0px; padding:0px; text-align:left; float:right;}
-.visite_button{background:#ffa612; width:120px; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:normal; color:#fff; text-align:center; border:none; margin:0px; padding:6px 0px;}
+.visite_button{background:#ffa612; width:120px; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:normal; color:#fff; text-align:center; border:none; margin:0px; padding:6px 0px; border-radius:2px;}
 .visite_button:hover, .visite_button:focus{background:#cc8104;}
 
 .popup_btn_wrap{background:#ffa612; padding:0px; text-align:center; width:135px; margin:0px auto;}
-.popup_btn{background:#ffa612; padding:3px 0px; margin:0px; text-align:center; border:none; color:#fff; width:100%}
+.popup_btn{background:#ffa612; padding:3px 0px; margin:0px; text-align:center; border:none; color:#fff; width:100%; border-radius:2px;}
 .popup_btn:hover, .popup_btn:focus{background:#cc8104;}
 
 
 .favorite_button_wrap{margin:5px 0px; padding:0px; text-align:left;}
-.favorite_button{background:#ffa612; width:110px; font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight:normal; color:#fff; text-align:center; border:none; margin:0px; padding:0px;}
+.favorite_button{background:#ffa612; width:110px; font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight:normal; color:#fff; text-align:center; border:none; margin:0px; padding:0px; border-radius:2px;}
 .favorite_button:hover, .favorite_button:focus{background:#cc8104;}
 .favorite_list_wrap{margin:0px; padding:0px 15px;}
 .favorite_list{font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#666; line-height:16px;}
@@ -188,23 +190,72 @@ a{outline:none;}
         right: 0px; 
     }
 
+.amount{font-family:Arial, Helvetica, sans-serif; font-size:30px; color:#666; text-align:center; font-weight:bold; margin:0px; padding:0px;}
+.balance{font-size:24px !important; padding:0px !important; text-align:center !important; line-height:32px;}
+.cart_wrap{margin:0px; padding:0px; float:left;}
+.cart_wrap img{margin-right:5px; padding:0px; width:48px; height:30px; float:left;}
+
+
+.test_list_wrap{margin:25px 0px; padding:0px;}
+.test_list_wrap h3.heading{font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold; color:#666; text-align:left; border-bottom:1px solid #E6E6E6; margin:0px; padding:0px;}
+.test_list_wrap ul{margin:0px 0px 35px; padding:0px;}
+.test_list_wrap ul li{margin:10px 0px; padding:0px; list-style-type:none}
+.test_list_wrap ul li a{font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#003366; text-align:left; text-decoration:none; margin:0px; padding:0px;}
+.test_list_wrap ul li a:hover{color:#0058af;}
+
+
+.begin_test_wrap{margin:0px; padding:0px; background:#fff; border:1px solid #ccc;}
+.begin_test_wrap h2{font-family:Arial, Helvetica, sans-serif; font-size:22px; font-weight:normal; color:#fff; text-align:left; padding:8px 15px; margin:0px; background:#999;}
+.begin_test_wrap .test_detail{margin:10px 0px 5%; padding:0px;}
+.td_head{font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; color:#666; padding:20px 0px 20px 15px; margin:0px; border-right:1px solid #ccc; border-bottom:1px solid #ccc;}
+.td_cont{font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:normal; color:#666; padding:20px 0px 20px 15px; margin:0px; border-bottom:1px solid #ccc;}
+
+
+.test_start_button_wrap{margin:0px; padding:0px; text-align:left; float:right;}
+.test_start_button{background:#ffa612; width:170px; font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight:normal; color:#fff; text-align:center; border:none; margin:0px; padding:6px 0px; border-radius:2px;}
+.test_start_button:hover, .test_start_button:focus{background:#cc8104;}
+
+
+.result_wrap{margin:0px; padding:0px;}
+.result_wrap h2{font-family:Arial, Helvetica, sans-serif; font-size:22px; font-weight:normal; color:#fff; text-align:left; padding:8px 10px; margin:0px; background:#999;}
+.result_wrap .result{margin:0px; padding:10px 15px 25px 15px; background:#fff; border:1px solid #ccc;}
+.result_wrap .result .info{margin:10px 0px 15px; padding:0px; float:left;}
+.result_wrap .result .info p{font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#666; margin:0px; padding:0px;}
+
+.result_head{margin:0px; padding-bottom:6px;}
+.result_head span{ background:#999; font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#fff; margin:0px; padding:8px;}
+.result_box_wrap{border:1px solid #ccc; margin-bottom:20px; padding:50px 15px 35px;}
+.result_box_wrap p{font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#666; text-align:center; margin:0px; padding-bottom:20px;}
+
+.result_button_wrap{margin:35px auto 40px; padding:0px; width:220px;}
+.result_button{background:#ffa612; width:220px; font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight:normal; color:#fff; text-align:center; border:none; margin:0px; padding:6px 0px; border-radius:2px;}
+.result_button:hover, .result_button:focus{background:#cc8104;}
 
 
 
+.exam_wrap{margin:0px; padding:0px;}
+.exam_wrap h2{font-family:Arial, Helvetica, sans-serif; font-size:22px; font-weight:normal; color:#fff; text-align:center; padding:8px 10px; margin:0px; background:#007ab0;}
+.exam_wrap .exam{margin:0px; padding:10px 15px 25px 15px; background:#fff; border:1px solid #ccc;}
+.exam_wrap .points{margin:0px; padding:10px 5px 25px 5px; background:#fff; border:1px solid #ccc;}
+.timing_bg{width:20px; height:540px; margin:10px auto; padding:0px; border:1px solid #ccc; border-radius:10px;}
+.score_bg{width:20px; height:520px; background:#ccc; margin:10px 0px 10px 0px; padding:0px; border-radius:10px; float:left;}
+.score_point_wrap{width:30px; float:left; margin:0px; padding:0px; border:0px solid red;}
+.score_point{font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; color:#999; margin:0px; padding-left:5px;}
+.question{font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#666; margin:0px; padding:0px;}
+.division{width:150px; height:2px; background:#ccc; margin:25px auto; padding:0px;}
+.ans_wrap{width:60%; margin:0 auto; padding:0px;}
+.ans_wrap ul{margin:0px; padding:0px;}
+.ans_wrap ul li{margin:25px 0px; padding:0px; list-style-type:none; display:block;}
+.ans_wrap ul li a{background:url(../images/tick_ico.png) left center no-repeat; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:20px; color:#929292; margin:0px; padding:5px 0px 5px 35px;}
+.ans_wrap ul li a:hover, .ans_wrap ul li a:focus{background:url(../images/tick_ans_ico.png) left center no-repeat; color:#006633;}
 
+.btn_next_wrap{border:1px solid #cacaca; padding:0px; text-align:center; width:292px; margin:76px auto;}
+.btn_next{background:#fff; padding:6px 0px; margin:0px; text-align:center; border:none; width:100%; color:#929292; border-radius:2px;}
+.btn_next:hover, .btn_next:focus{background:#ccc;}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.show_hide {
+    display:none;
+}
 
 
 

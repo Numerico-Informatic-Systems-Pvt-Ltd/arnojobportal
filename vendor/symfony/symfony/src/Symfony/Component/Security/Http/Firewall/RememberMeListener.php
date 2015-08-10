@@ -22,7 +22,7 @@ use Symfony\Component\Security\Http\SecurityEvents;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
- * RememberMeListener implements authentication capabilities via a cookie
+ * RememberMeListener implements authentication capabilities via a cookie.
  *
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
  */
@@ -35,7 +35,7 @@ class RememberMeListener implements ListenerInterface
     private $dispatcher;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param SecurityContextInterface       $securityContext
      * @param RememberMeServicesInterface    $rememberMeServices
@@ -80,12 +80,12 @@ class RememberMeListener implements ListenerInterface
             if (null !== $this->logger) {
                 $this->logger->debug('SecurityContext populated with remember-me token.');
             }
-        } catch (AuthenticationException $failed) {
+        } catch (AuthenticationException $e) {
             if (null !== $this->logger) {
                 $this->logger->warning(
                     'SecurityContext not populated with remember-me token as the'
                    .' AuthenticationManager rejected the AuthenticationToken returned'
-                   .' by the RememberMeServices: '.$failed->getMessage()
+                   .' by the RememberMeServices: '.$e->getMessage()
                 );
             }
 

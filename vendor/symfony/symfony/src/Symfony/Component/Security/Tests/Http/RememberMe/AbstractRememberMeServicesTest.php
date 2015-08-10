@@ -14,16 +14,10 @@ namespace Symfony\Component\Security\Tests\Http\RememberMe;
 use Symfony\Component\Security\Http\RememberMe\RememberMeServicesInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Http\RememberMe\AbstractRememberMeServices;
 
 class AbstractRememberMeServicesTest extends \PHPUnit_Framework_TestCase
 {
-    protected function setUp()
-    {
-        if (!class_exists('Symfony\Component\HttpFoundation\Request')) {
-            $this->markTestSkipped('The "HttpFoundation" component is not available');
-        }
-    }
-
     public function testGetRememberMeParameter()
     {
         $service = $this->getService(null, array('remember_me_parameter' => 'foo'));
@@ -50,7 +44,7 @@ class AbstractRememberMeServicesTest extends \PHPUnit_Framework_TestCase
     public function testAutoLoginThrowsExceptionWhenImplementationDoesNotReturnUserInterface()
     {
         $service = $this->getService(null, array('name' => 'foo', 'path' => null, 'domain' => null));
-        $request = new Request;
+        $request = new Request();
         $request->cookies->set('foo', 'foo');
 
         $service
@@ -113,8 +107,8 @@ class AbstractRememberMeServicesTest extends \PHPUnit_Framework_TestCase
     public function testLoginSuccessIsNotProcessedWhenTokenDoesNotContainUserInterfaceImplementation()
     {
         $service = $this->getService(null, array('name' => 'foo', 'always_remember_me' => true, 'path' => null, 'domain' => null));
-        $request = new Request;
-        $response = new Response;
+        $request = new Request();
+        $response = new Response();
         $account = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
         $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
         $token
@@ -136,8 +130,8 @@ class AbstractRememberMeServicesTest extends \PHPUnit_Framework_TestCase
     public function testLoginSuccessIsNotProcessedWhenRememberMeIsNotRequested()
     {
         $service = $this->getService(null, array('name' => 'foo', 'always_remember_me' => false, 'remember_me_parameter' => 'foo', 'path' => null, 'domain' => null));
-        $request = new Request;
-        $response = new Response;
+        $request = new Request();
+        $response = new Response();
         $account = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
         $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
         $token
@@ -160,8 +154,8 @@ class AbstractRememberMeServicesTest extends \PHPUnit_Framework_TestCase
     public function testLoginSuccessWhenRememberMeAlwaysIsTrue()
     {
         $service = $this->getService(null, array('name' => 'foo', 'always_remember_me' => true, 'path' => null, 'domain' => null));
-        $request = new Request;
-        $response = new Response;
+        $request = new Request();
+        $response = new Response();
         $account = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
         $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
         $token
@@ -186,9 +180,9 @@ class AbstractRememberMeServicesTest extends \PHPUnit_Framework_TestCase
     {
         $service = $this->getService(null, array('name' => 'foo', 'always_remember_me' => false, 'remember_me_parameter' => 'foo[bar]', 'path' => null, 'domain' => null));
 
-        $request = new Request;
+        $request = new Request();
         $request->request->set('foo', array('bar' => $value));
-        $response = new Response;
+        $response = new Response();
         $account = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
         $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
         $token
@@ -213,9 +207,9 @@ class AbstractRememberMeServicesTest extends \PHPUnit_Framework_TestCase
     {
         $service = $this->getService(null, array('name' => 'foo', 'always_remember_me' => false, 'remember_me_parameter' => 'foo', 'path' => null, 'domain' => null));
 
-        $request = new Request;
+        $request = new Request();
         $request->request->set('foo', $value);
-        $response = new Response;
+        $response = new Response();
         $account = $this->getMock('Symfony\Component\Security\Core\User\UserInterface');
         $token = $this->getMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
         $token
@@ -243,6 +237,30 @@ class AbstractRememberMeServicesTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testEncodeCookieAndDecodeCookieAreInvertible()
+    {
+        $cookieParts = array('aa', 'bb', 'cc');
+        $service = $this->getService();
+
+        $encoded = $this->callProtected($service, 'encodeCookie', array($cookieParts));
+        $this->assertInternalType('string', $encoded);
+
+        $decoded = $this->callProtected($service, 'decodeCookie', array($encoded));
+        $this->assertSame($cookieParts, $decoded);
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage cookie delimiter
+     */
+    public function testThereShouldBeNoCookieDelimiterInCookieParts()
+    {
+        $cookieParts = array('aa', 'b'.AbstractRememberMeServices::COOKIE_DELIMITER.'b', 'cc');
+        $service = $this->getService();
+
+        $this->callProtected($service, 'encodeCookie', array($cookieParts));
+    }
+
     protected function getService($userProvider = null, $options = array(), $logger = null)
     {
         if (null === $userProvider) {
@@ -250,7 +268,7 @@ class AbstractRememberMeServicesTest extends \PHPUnit_Framework_TestCase
         }
 
         return $this->getMockForAbstractClass('Symfony\Component\Security\Http\RememberMe\AbstractRememberMeServices', array(
-            array($userProvider), 'fookey', 'fookey', $options, $logger
+            array($userProvider), 'fookey', 'fookey', $options, $logger,
         ));
     }
 
@@ -264,5 +282,14 @@ class AbstractRememberMeServicesTest extends \PHPUnit_Framework_TestCase
         ;
 
         return $provider;
+    }
+
+    private function callProtected($object, $method, array $args)
+    {
+        $reflection = new \ReflectionClass(get_class($object));
+        $reflectionMethod = $reflection->getMethod($method);
+        $reflectionMethod->setAccessible(true);
+
+        return $reflectionMethod->invokeArgs($object, $args);
     }
 }

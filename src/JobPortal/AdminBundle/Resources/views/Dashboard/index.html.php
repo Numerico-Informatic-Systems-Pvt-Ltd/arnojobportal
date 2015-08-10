@@ -21,7 +21,7 @@
                     <tr>
                         <td class="no_border"><b>image: </b></td><td class="no_border"><?php
                             if (!empty($admin_data[0]['image'])) {
-                                echo "<img src = '" . $admin_data[0]['image'] . "' height = '75' width = '55' >";
+                                echo "<img src = '" .$view['assets']->getUrl('uploads/'). $admin_data[0]['image'] . "' height = '75' width = '55' >";
                             } else {
                                 echo "<img src = '" . $view['assets']->getUrl('JobPortal/images/admin.png') . "' height = '75' width = '55' >";
                             }

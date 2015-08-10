@@ -38,3 +38,11 @@ _admin_profile_update:
 _admin_changePassword:
     pattern: /adminChangePassword
     defaults: { _controller: JobPortalAdminBundle:Dashboard:adminChangePassword }
+    
+_forget_password:
+    pattern: /forgetPassword
+    defaults: { _controller: JobPortalAdminBundle:Login:forgetPassword }
+    
+_change_forget_password:
+    pattern: /changeForgetPassword
+    defaults: { _controller: JobPortalAdminBundle:Login:changeForgetPassword }

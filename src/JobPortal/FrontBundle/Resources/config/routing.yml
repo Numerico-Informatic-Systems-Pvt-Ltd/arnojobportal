@@ -1,3 +1,25 @@
 job_portal_front_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: JobPortalFrontBundle:Default:index }
+
+fetch_category:
+    path:     /fetchCategory
+    defaults: { _controller: JobPortalFrontBundle:OnlineTest:fetchCategory }
+
+begin_test:
+    path:     /beginTest
+    defaults: { _controller: JobPortalFrontBundle:OnlineTest:beginTest }
+
+test_exams:
+    path:     /testExams
+    defaults: { _controller: JobPortalFrontBundle:OnlineTest:testExams }
+
+test_score:
+    path:     /testScore
+    defaults: { _controller: JobPortalFrontBundle:OnlineTest:testScore }
+
+    
+answer_of_question:
+    path:     /answerOfQuestion
+    defaults: { _controller: JobPortalFrontBundle:OnlineTest:answerOfQuestion }
+    

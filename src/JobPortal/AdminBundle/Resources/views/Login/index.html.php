@@ -75,7 +75,11 @@
                             <div class="col-lg-12 col-sm-12">
                                 <div class="regis_box login_wrap">
                                     <h1>Connexion administrateur</h1>
-                                    <?php //echo $this->generateUrl('target_route'); ?>
+                                    <?php
+                                        if(isset($_GET['msg_success'])){
+                                            echo "<span style = 'color: green;'>".$_GET['msg_success']."</span>";
+                                        }
+                                    ?>
                                     <form action = "<?php echo $view['router']->generate('_login_index') ?>" method = "POST">
                                         <div class="form-group">
                                             <input type="text" name="username" class="form-control" placeholder="Se Connecter" style="height:45px;">
@@ -86,6 +90,10 @@
                                         <div class="form-group">
                                             <input type="checkbox"> Se souvenir de moi
                                         </div>
+                                        <div class="form-group">
+                                            <a href = "<?php echo $view['router']->generate('_forget_password') ?>">mot de passe oublié</a>
+                                        </div>
+                                        
 
                                         <div class="regis_button_wrap">
                                             <input class="regis_button" type="submit" value="Se Connecter">
