@@ -20,7 +20,7 @@
             <?php
                     foreach( $categories[$parent_category['id']] as $index => $category){
             ?>
-                            <li><a href="<?php echo $view['router']->generate('begin_test') ?>"><?php echo $category['category']; ?></a></li>
+                            <li><a href="<?php echo $view['router']->generate('begin_test',  array('id' => $category['id'])) ?>"><?php echo $category['category']; ?></a></li>
             <?php
                     }
             ?>

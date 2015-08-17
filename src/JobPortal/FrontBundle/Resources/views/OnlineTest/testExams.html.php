@@ -17,26 +17,34 @@
             <div class="col-lg-10 col-sm-10">
                 <?php //print_r($questions); die; ?>
                 <h2>Developpeur Web</h2>
+            <form action = "<?php echo $view['router']->generate('test_score') ?>" method = "post">
                 <div class="exam" >
                     <div class="question" ng-bind-html="page_question">
-                       
+
                     </div>
                     <div class="division"></div>
                     <div class="clearfix"></div>
 
                     <div class="ans_wrap">
                         <ul ng-repeat="answer in answers">
-                            <li><a href="#" >{{answer.answer}}</a></li>
+                            <li><a href="javascript:void(0);"  ng-click="answerOption(answer.id, answer.question_id);" >{{answer.answer}}</a></li>
                         </ul>
                         <div class="clearfix"></div>
                     </div>
-
+                    <div class="ans_wrap">
+                        <ul ng-repeat="ans in array_questions_answer">
+                            <input type = "text" name = "question_answer[{{ans.question}}]" value = "{{ans.answer}}" >
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
                     <div class="btn_next_wrap">
-                        <input type="button" class="btn_next" ng-click="nextQuestion();" value="Metter en pause a la prochaine question" />
+                        <input type="button" id = "form_next" class="btn_next" ng-click="nextQuestion();" value="Metter en pause a la prochaine question" />
+                        <input type="submit" id = "form_submit" style ="display: none;" ng-click="nextQuestion();"  class="btn_next" value="Submit" />
                     </div>
 
                     <div class="clearfix"></div>
                 </div>
+            </form>
             </div>
             <div class="col-lg-1 col-sm-1">
                 <div class="points">
@@ -56,7 +64,8 @@
                 </div>
             </div>
             <div class="clearfix"></div>
-
+            
+            
         </div>
         <div class="clearfix"></div>
     </div>
@@ -64,28 +73,33 @@
 <script type="text/javascript">
     var app = angular.module('examApp', ['ngSanitize']);
     app.controller('examController', function ($scope, $http) {
+        
         $scope.questions = <?php echo $questions; ?>;
         var firstQuestion = $scope.questions.pop();
         $scope.totalquestion = 1;
-        $http.get("<?php echo $view['router']->generate('answer_of_question') ?>?question_id=" + firstQuestion.id)
-                .success(function (response){
-                    $scope.answers = response.data;
-                });
         $scope.page_question = firstQuestion.question;
+        $scope.answers = firstQuestion.answer;
         $scope.nextQuestion = function () {
             var serialQuestion = $scope.questions.pop();
             $scope.question = serialQuestion.question;
-            //alert($scope.question);
             $scope.page_question = $scope.question;
-           //$scope.page_question = $sce.trustAsHtml($scope.question);
-            //alert(serialQuestion.id);
-            $http.get("<?php echo $view['router']->generate('answer_of_question') ?>?question_id=" + serialQuestion.id)
-            .success(function (response){
-                $scope.answers = response.data;
-                $scope.totalquestion++;
-            });
-
+            $scope.answers = serialQuestion.answer;
+            $scope.totalquestion++;
+            $scope.array_questions_answer.push($scope.score_array);
+            if ($scope.totalquestion == 5) {
+                $("#form_submit").css("display","block");
+                $("#form_next").css("display","none");
+            }
         };
+        $scope.array_questions_answer = [];
+        $scope.answerOption = function (answer, question) {
+            $scope.score_array = {question: question, answer: answer};
+        }
     });
+
+
+
 </script>
+
+
 <?php $view['slots']->stop('body') ?>

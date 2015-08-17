@@ -15,15 +15,15 @@
                     	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="border:1px solid #ccc; margin-bottom:35px;">
                           <tr>
                             <td align="left" valign="top" width="40%" class="td_head">Nom du test</td>
-                            <td align="left" valign="top" width="60%" class="td_cont">Programmation informatique PHP</td>
+                            <td align="left" valign="top" width="60%" class="td_cont"><?php echo $exam_category; ?></td>
                           </tr>
                           <tr>
                             <td align="left" valign="top" width="40%" class="td_head">Nombre de question :</td>
-                            <td align="left" valign="top" width="60%" class="td_cont">150</td>
+                            <td align="left" valign="top" width="60%" class="td_cont">5</td>
                           </tr>
                           <tr>
                             <td align="left" valign="top" width="40%" class="td_head">Temps(minutes):</td>
-                            <td align="left" valign="top" width="60%" class="td_cont">45</td>
+                            <td align="left" valign="top" width="60%" class="td_cont">5</td>
                           </tr>
                           <tr>
                             <td align="left" valign="top" class="td_cont" colspan="2" style="border-bottom:none;">0.25 points seront deduis pour chaque reponse invalide</td>
@@ -31,7 +31,7 @@
                         </table>
                         
                         <div class="test_start_button_wrap">
-                            <a href = "<?php echo $view['router']->generate('test_exams') ?>" ><input type="button" class="test_start_button" value="Démarrer le test >" /></a>
+                            <a href = "<?php echo $view['router']->generate('test_exams', array('id' => $exam_category_id) ) ?>" ><input type="button" class="test_start_button" value="Démarrer le test >" /></a>
                         </div>
 
                     </div>
