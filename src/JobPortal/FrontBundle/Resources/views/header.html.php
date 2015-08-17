@@ -33,13 +33,17 @@
                             <div class="top_header_nav">
                                 <ul>
                                     <li><a href="#">Besoni D'aide?</a></li>
-                                    <li><a href="#">Acces Enterprise</a></li>
+                                    <li><a href="<?php echo $view['router']->generate('employer_register') ?>">Acces Enterprise</a></li>
                                     <li>
-                                        <?php //if(!empty($candidateData)) { ?>
-                                        <a href="<?php //echo $view['router']->generate('user_logout') ?>">Se Deconnecter</a>
-                                        <?php //}else{ ?>
-                                        <a href="<?php //echo $view['router']->generate('user_register') ?>">se connecter</a>
-                                        <?php// } ?>
+
+                                        <?php if (!empty($candidateData)) { ?>
+                                            <a href="<?php echo $view['router']->generate('user_logout') ?>">Se Deconnecter</a>
+                                        <?php } else { ?>
+                                            <a href="<?php echo $view['router']->generate('user_register') ?>">se connecter</a>
+                                        <?php } ?>
+
+
+
                                     </li>
                                 </ul>
                             </div>

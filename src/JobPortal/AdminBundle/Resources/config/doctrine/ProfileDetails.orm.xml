@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="JobPortal\AdminBundle\Entity\ProfileDetails" table="profile_details">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userId" type="integer" column="user_id" nullable="false"/>
+    <field name="yourStateOfMind" type="string" column="your_state_of_mind" length="255" nullable="true"/>
+    <field name="cvInPdf" type="text" column="cv_in_pdf" length="255" nullable="true"/>
+    <field name="lookingFor" type="string" column="looking_for" length="255" nullable="true"/>
+    <field name="createdDate" type="string" column="created_date" length="255" nullable="true"/>
+    <field name="status" type="boolean" column="status" nullable="false"/>
+    <field name="isDeleted" type="boolean" column="is_deleted" nullable="false"/>
+  </entity>
+</doctrine-mapping>

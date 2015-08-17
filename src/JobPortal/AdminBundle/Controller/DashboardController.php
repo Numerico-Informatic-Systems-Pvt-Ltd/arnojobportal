@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Session\Session;
+use JobPortal\AdminBundle\Entity\ProfileDetails;
+use JobPortal\AdminBundle\Entity\ProfileType;
 
 class DashboardController extends Controller {
 
@@ -48,7 +50,7 @@ class DashboardController extends Controller {
                         if (in_array(strtolower($file_type), $valid_filetypes)) {
                             foreach ($request->files as $uploadedFile) {
                                 $directory = "/var/www/arnojobportal/web/uploads/";
-                                $name_image = time().'_'.$uploadedFile->getClientOriginalName();
+                                $name_image = time() . '_' . $uploadedFile->getClientOriginalName();
                                 $file = $uploadedFile->move($directory, $name_image);
                             }
                         } else {
@@ -100,7 +102,48 @@ class DashboardController extends Controller {
             return $this->render('JobPortalAdminBundle:Dashboard:changePassword.html.php', array('name' => $name, 'admin_data' => $users));
         }
     }
-    
-    
+
+    public function addProfileTypeAction(Request $request) {
+        if ($request->getMethod() == "POST") {
+            $data = $request->request->all(); // receive All data from form
+            $profileType = new ProfileType();
+            $profileType->setName($data['name']);
+            $profileType->setDescription($data['description']);
+            $profileType->setStatus($data['status']);
+            $profileType->setIsDeleted(1);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($profileType);
+            $em->flush();
+            return new RedirectResponse($this->generateUrl('_candidate_profile_type_view'));
+        } else {
+            return $this->render('JobPortalAdminBundle:Dashboard:addProfileType.html.php', array());
+        }
+    }
+
+    public function viewProfileTypeAction(Request $request) {
+        $ProfileType = $this->getDoctrine()->getRepository('JobPortalAdminBundle:ProfileType')->findBy(array('isDeleted' => '1'));
+        return $this->render('JobPortalAdminBundle:Dashboard:viewProfileType.html.php', array('profileTypes' => $ProfileType));
+    }
+
+    public function editProfileTypeAction($id) {
+        $ProfileType = $this->getDoctrine()->getRepository('JobPortalAdminBundle:ProfileType')->find($id);
+        if ($_POST) {
+            //$profileType = new ProfileType();
+            $ProfileType->setName($_POST['name']);
+            $ProfileType->setDescription($_POST['description']);
+            $ProfileType->setStatus($_POST['status']);
+            $ProfileType->setIsDeleted('1');
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($ProfileType);
+            $em->flush();
+            return new RedirectResponse($this->generateUrl('_candidate_profile_type_view'));
+        } else {
+
+            if (!$ProfileType) {
+                throw $this->createNotFoundException('No data found for id ' . $id);
+            }
+            return $this->render('JobPortalAdminBundle:Dashboard:editProfileType.html.php', array('profiletype' => $ProfileType));
+        }
+    }
 
 }

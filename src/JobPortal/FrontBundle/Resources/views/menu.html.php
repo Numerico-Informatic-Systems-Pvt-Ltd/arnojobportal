@@ -20,7 +20,9 @@
                                             <ul class="nav navbar-nav">
                                                 <li><a href="#">Home</a></li>
                                                 <li><a href="#">Categorie</a></li>
-                                                <li><a href="#">Mes Competences</a></li>
+                                                
+                                                <li><a href="<?php echo $view['router']->generate('my_skills') ?>">Mes Competences</a></li>
+                                                
                                                 <li><a href="#">Mon Compte</a></li>
                                             </ul>
                                         </div><!-- /.navbar-collapse -->

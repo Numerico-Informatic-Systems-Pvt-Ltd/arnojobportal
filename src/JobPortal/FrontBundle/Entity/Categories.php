@@ -10,11 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Categories
 {
     /**
-     * @var integer
-     */
-    private $parentId;
-
-    /**
      * @var string
      */
     private $category;
@@ -39,29 +34,6 @@ class Categories
      */
     private $id;
 
-
-    /**
-     * Set parentId
-     *
-     * @param integer $parentId
-     * @return Categories
-     */
-    public function setParentId($parentId)
-    {
-        $this->parentId = $parentId;
-    
-        return $this;
-    }
-
-    /**
-     * Get parentId
-     *
-     * @return integer 
-     */
-    public function getParentId()
-    {
-        return $this->parentId;
-    }
 
     /**
      * Set category

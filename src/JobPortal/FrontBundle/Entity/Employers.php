@@ -12,11 +12,6 @@ class Employers
     /**
      * @var string
      */
-    private $companyName;
-
-    /**
-     * @var string
-     */
     private $name;
 
     /**
@@ -89,29 +84,6 @@ class Employers
      */
     private $id;
 
-
-    /**
-     * Set companyName
-     *
-     * @param string $companyName
-     * @return Employers
-     */
-    public function setCompanyName($companyName)
-    {
-        $this->companyName = $companyName;
-    
-        return $this;
-    }
-
-    /**
-     * Get companyName
-     *
-     * @return string 
-     */
-    public function getCompanyName()
-    {
-        return $this->companyName;
-    }
 
     /**
      * Set name
@@ -443,5 +415,33 @@ class Employers
     public function getId()
     {
         return $this->id;
+    }
+    /**
+     * @var string
+     */
+    private $companyName;
+
+
+    /**
+     * Set companyName
+     *
+     * @param string $companyName
+     * @return Employers
+     */
+    public function setCompanyName($companyName)
+    {
+        $this->companyName = $companyName;
+    
+        return $this;
+    }
+
+    /**
+     * Get companyName
+     *
+     * @return string 
+     */
+    public function getCompanyName()
+    {
+        return $this->companyName;
     }
 }

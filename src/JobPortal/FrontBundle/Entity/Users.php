@@ -65,7 +65,7 @@ class Users
     private $cv;
 
     /**
-     * @var string
+     * @var integer
      */
     private $forgetPasswordOtp;
 
@@ -346,7 +346,7 @@ class Users
     /**
      * Set forgetPasswordOtp
      *
-     * @param string $forgetPasswordOtp
+     * @param integer $forgetPasswordOtp
      * @return Users
      */
     public function setForgetPasswordOtp($forgetPasswordOtp)
@@ -359,7 +359,7 @@ class Users
     /**
      * Get forgetPasswordOtp
      *
-     * @return string 
+     * @return integer 
      */
     public function getForgetPasswordOtp()
     {

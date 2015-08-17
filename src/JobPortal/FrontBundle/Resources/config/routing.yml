@@ -2,16 +2,69 @@ job_portal_front_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: JobPortalFrontBundle:Default:index }
 
+
+user_register:
+    path:     /userRegister
+    defaults: { _controller: JobPortalFrontBundle:Users:userRegister }
+
+user_login:
+    path:     /userLogin
+    defaults: { _controller: JobPortalFrontBundle:Users:userLogin }
+
+forget_password:
+    path:     /forgetPassword
+    defaults: { _controller: JobPortalFrontBundle:Users:forgetPassword }
+
+user_login_facebook:
+    path:     /userLoginFacebook
+    defaults: { _controller: JobPortalFrontBundle:Users:userLoginFacebook }
+
+user_profile:
+    path:     /userProfile
+    defaults: { _controller: JobPortalFrontBundle:Users:userProfile }
+
+user_update:
+    path:     /userUpdate
+    defaults: { _controller: JobPortalFrontBundle:Users:userUpdate }
+    
+user_cv:
+    path:     /userCv
+    defaults: { _controller: JobPortalFrontBundle:Users:userCv }
+    
+chage_password:
+    path:     /changePassword
+    defaults: { _controller: JobPortalFrontBundle:Users:changePassword }
+
+user_logout:
+    path:     /userLogout
+    defaults: { _controller: JobPortalFrontBundle:Logout:userLogout }
+ajax_user_login_check:
+    path:     /registerCheck
+    defaults: { _controller: JobPortalFrontBundle:Users:ajaxregisterCheck }
+
+user_img_upload:
+    path:     /imageUpload
+    defaults: { _controller: JobPortalFrontBundle:Users:imageUpload }
+    
+my_skills:
+    path:     /mySkills
+    defaults: { _controller: JobPortalFrontBundle:Users:mySkills }
+    
+    
+my_cv_details:
+    path:     /myCvDetails
+    defaults: { _controller: JobPortalFrontBundle:Users:myCvDetails }
+
 fetch_category:
     path:     /fetchCategory
     defaults: { _controller: JobPortalFrontBundle:OnlineTest:fetchCategory }
 
 begin_test:
-    path:     /beginTest/{id}
+    path:     /beginTest
     defaults: { _controller: JobPortalFrontBundle:OnlineTest:beginTest }
 
 test_exams:
-    path:     /testExams/{id}
+    path:     /testExams
     defaults: { _controller: JobPortalFrontBundle:OnlineTest:testExams }
 
 test_score:
@@ -23,5 +76,32 @@ answer_of_question:
     path:     /answerOfQuestion
     defaults: { _controller: JobPortalFrontBundle:OnlineTest:answerOfQuestion }
     
+
+
+employer_register:
+    path:     /employerRegister
+    defaults: { _controller: JobPortalFrontBundle:Employers:employerRegister }
+
+employer_login:
+    path:     /employerLogin
+    defaults: { _controller: JobPortalFrontBundle:Employers:employerLogin }
+
+employer_change_password:
+    path:     /employerChangePassword
+    defaults: { _controller: JobPortalFrontBundle:Employers:employerChangePassword }
+
+employer_forget_password:
+    path:     /employerForgetPassword
+    defaults: { _controller: JobPortalFrontBundle:Employers:employerForgetPassword }
+
+employer_profile:
+    path:     /employerProfile
+    defaults: { _controller: JobPortalFrontBundle:Employers:employerProfile }
+
+employer_update:
+    path:     /employerUpdate
+    defaults: { _controller: JobPortalFrontBundle:Employers:employerUpdate }
     
-    
+ajax_employer_login_check:
+    path:     /ajaxEmployerregisterCheck
+    defaults: { _controller: JobPortalFrontBundle:Employers:ajaxEmployerregisterCheck }

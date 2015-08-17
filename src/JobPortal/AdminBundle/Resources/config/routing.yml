@@ -95,3 +95,14 @@ _change_forget_password:
     pattern: /changeForgetPassword
     defaults: { _controller: JobPortalAdminBundle:Login:changeForgetPassword }
 
+_candidate_profile_type:
+    pattern: /addProfileType
+    defaults: { _controller: JobPortalAdminBundle:Dashboard:addProfileType }
+    
+_candidate_profile_type_view:
+    pattern: /viewProfileType
+    defaults: { _controller: JobPortalAdminBundle:Dashboard:viewProfileType }
+    
+_candidate_profile_type_edit:
+    pattern: /editProfileType/{id}
+    defaults: { _controller: JobPortalAdminBundle:Dashboard:editProfileType }

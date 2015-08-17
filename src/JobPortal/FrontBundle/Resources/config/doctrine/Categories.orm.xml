@@ -4,7 +4,6 @@
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="parentId" type="integer" column="parent_id" nullable="false"/>
     <field name="category" type="string" column="category" length="255" nullable="false"/>
     <field name="description" type="text" column="description" nullable="false"/>
     <field name="status" type="boolean" column="status" nullable="false"/>

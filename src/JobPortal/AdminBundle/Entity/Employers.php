@@ -452,4 +452,32 @@ class Employers
     {
         return $this->id;
     }
+    /**
+     * @var string
+     */
+    private $companyName;
+
+
+    /**
+     * Set companyName
+     *
+     * @param string $companyName
+     * @return Employers
+     */
+    public function setCompanyName($companyName)
+    {
+        $this->companyName = $companyName;
+    
+        return $this;
+    }
+
+    /**
+     * Get companyName
+     *
+     * @return string 
+     */
+    public function getCompanyName()
+    {
+        return $this->companyName;
+    }
 }

@@ -24,6 +24,13 @@
                                     </ul>
                                 </li>
                                 <li>
+                                    <div class="link">Gérer Type de profil<span class="caret pull-right"></span></div>
+                                    <ul class="submenu">
+                                         <li><a href="<?php echo $view['router']->generate('_candidate_profile_type') ?>">ajouter Type de profil</a></li>
+                                        <li><a href="<?php echo $view['router']->generate('_candidate_profile_type_view') ?>">Voir le profil type</a></li>
+                                    </ul>
+                                </li>
+                                <li>
                                     <div class="link">Global<span class="caret pull-right"></span></div>
                                     <ul class="submenu">
                                         <li><a href="#">Google</a></li>
