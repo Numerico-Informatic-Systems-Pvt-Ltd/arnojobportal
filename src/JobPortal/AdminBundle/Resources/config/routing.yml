@@ -15,7 +15,7 @@ _dahboard_index:
     pattern: /dashboard
     defaults: { _controller: JobPortalAdminBundle:Dashboard:index }
 #routing start by shibu
-_index:
+_category_index:
     pattern:     /categories
     defaults: { _controller: JobPortalAdminBundle:Categories:index }
     
@@ -24,13 +24,52 @@ _category_add:
     defaults: { _controller: JobPortalAdminBundle:Categories:add }
 
 _category_edit:
-    pattern:     /editCategory
+    pattern:     /editCategory/{id}
     defaults: { _controller: JobPortalAdminBundle:Categories:edit }    
     
 _category_delete:
     pattern:     /deleteCategory
     defaults: { _controller: JobPortalAdminBundle:Categories:delete }
+
+_admin_profile_update:
+    pattern: /adminUpdate
+    defaults: { _controller: JobPortalAdminBundle:Dashboard:adminUpdate }
     
+_admin_changePassword:
+    pattern: /adminChangePassword
+    defaults: { _controller: JobPortalAdminBundle:Dashboard:adminChangePassword }
+
+
+_status_update:
+    path:     /statusUpdate
+    defaults: { _controller: JobPortalAdminBundle:Common:statusUpdate }
+
+_delete_update:
+    path:     /deleteUpdate/{id}/{table}/{route}
+    defaults: { _controller: JobPortalAdminBundle:Common:deleteUpdate }
+
+_question_index:
+    path:     /viewQuestion
+    defaults: { _controller: JobPortalAdminBundle:Questions:index }
+_question_add:
+    path:     /addQuestion
+    defaults: { _controller: JobPortalAdminBundle:Questions:add }
+
+_answer_index:
+    path:     /index
+    defaults: { _controller: JobPortalAdminBundle:Answers:index }
+    
+_ajax_quesion_view:
+    path: /ajaxQuestionView
+    defaults: { _controller: JobPortalAdminBundle:Questions:ajaxQuestionView }
+    
+_details_quesion_view:
+    path: /detailsQuestionView
+    defaults: { _controller: JobPortalAdminBundle:Questions:detailsQuestionView }
+
+_update_quesion_view:
+    path: /updateQuestion
+    defaults: { _controller: JobPortalAdminBundle:Questions:updateQuestion }
 _admin_profile_update:
     pattern: /adminUpdate
     defaults: { _controller: JobPortalAdminBundle:Dashboard:adminUpdate }
@@ -46,3 +85,13 @@ _forget_password:
 _change_forget_password:
     pattern: /changeForgetPassword
     defaults: { _controller: JobPortalAdminBundle:Login:changeForgetPassword }
+
+    
+_forget_password:
+    pattern: /forgetPassword
+    defaults: { _controller: JobPortalAdminBundle:Login:forgetPassword }
+    
+_change_forget_password:
+    pattern: /changeForgetPassword
+    defaults: { _controller: JobPortalAdminBundle:Login:changeForgetPassword }
+

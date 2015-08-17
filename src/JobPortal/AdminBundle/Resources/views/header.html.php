@@ -8,6 +8,7 @@
                 <link rel="stylesheet" type="text/css" href="<?php echo $view['assets']->getUrl('JobPortal/css/my_boots.css') ?>" />
                 <link rel="stylesheet" type="text/css" href="<?php echo $view['assets']->getUrl('JobPortal/css/bootstrap-theme.css') ?>" />
                 <link rel="stylesheet" type="text/css" href="<?php echo $view['assets']->getUrl('JobPortal/css/style.css') ?>" />
+                <script src="//cdn.ckeditor.com/4.5.1/standard/ckeditor.js"></script>
 
                 <style type="text/css">
                     table{border:1px solid #ccc; margin:0px; padding:0px;}
@@ -16,7 +17,6 @@
                     table tr th, table tr td{border-left:1px solid #ccc;}
                     .no_border{border: none;}
                 </style>
-
 
                 <title><?php $view['slots']->output('title', 'Dasti') ?></title>
                 </head>
@@ -40,4 +40,4 @@
                         </div>
                         <div class="clearfix"></div>
                     </div>
-<?php $view['slots']->stop('header') ?>
+                    <?php $view['slots']->stop('header') ?>

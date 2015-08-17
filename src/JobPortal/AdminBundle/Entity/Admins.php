@@ -6,48 +6,70 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Admins
+ *
+ * @ORM\Table(name="admins")
+ * @ORM\Entity
  */
 class Admins
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
      * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
     private $name;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
      */
     private $email;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
      */
     private $password;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="image", type="text", nullable=false)
      */
     private $image;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="forget_password_otp", type="string", length=255, nullable=false)
      */
     private $forgetPasswordOtp;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="status", type="boolean", nullable=false)
      */
     private $status;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="is_deleted", type="boolean", nullable=false)
      */
     private $isDeleted;
 
-    /**
-     * @var integer
-     */
-    private $id;
 
 
     /**

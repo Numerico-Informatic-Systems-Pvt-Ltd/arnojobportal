@@ -7,6 +7,6 @@
     <field name="category" type="string" column="category" length="255" nullable="false"/>
     <field name="description" type="text" column="description" nullable="false"/>
     <field name="status" type="boolean" column="status" nullable="false"/>
-    <field name="isDeleted" type="boolean" column="is_deleted" nullable="false"/>
+    <field name="isDeleted" type="boolean" column="is_deleted" nullable="true"/>
   </entity>
 </doctrine-mapping>

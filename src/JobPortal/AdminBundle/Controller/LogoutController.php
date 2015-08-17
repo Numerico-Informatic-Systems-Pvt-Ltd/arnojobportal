@@ -9,8 +9,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class LogoutController extends Controller {
 
-    public function indexAction() {
-        //$this->get('session')->clear();
+    public function indexAction() {       
         $session = $this->get('session');
         $ses_vars = $session->all();
         foreach ($ses_vars as $key => $value) {

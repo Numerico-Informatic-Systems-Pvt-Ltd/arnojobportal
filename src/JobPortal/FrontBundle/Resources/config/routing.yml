@@ -7,11 +7,11 @@ fetch_category:
     defaults: { _controller: JobPortalFrontBundle:OnlineTest:fetchCategory }
 
 begin_test:
-    path:     /beginTest
+    path:     /beginTest/{id}
     defaults: { _controller: JobPortalFrontBundle:OnlineTest:beginTest }
 
 test_exams:
-    path:     /testExams
+    path:     /testExams/{id}
     defaults: { _controller: JobPortalFrontBundle:OnlineTest:testExams }
 
 test_score:
@@ -22,4 +22,6 @@ test_score:
 answer_of_question:
     path:     /answerOfQuestion
     defaults: { _controller: JobPortalFrontBundle:OnlineTest:answerOfQuestion }
+    
+    
     

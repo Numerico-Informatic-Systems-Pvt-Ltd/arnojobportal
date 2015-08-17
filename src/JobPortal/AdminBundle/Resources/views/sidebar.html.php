@@ -10,19 +10,17 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <div class="link">Coding<span class="caret pull-right"></span></div>
+                                    <div class="link">gérer Catégorie<span class="caret pull-right"></span></div>
                                     <ul class="submenu">
-                                        <li><a href="#">Javascript</a></li>
-                                        <li><a href="#">jQuery</a></li>
-                                        <li><a href="#">Ruby</a></li>
+                                         <li><a href="<?php echo $view['router']->generate('_category_add') ?>">Ajouter Catégorie</a></li>
+                                        <li><a href="<?php echo $view['router']->generate('_category_index') ?>">vue des Catégorie</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <div class="link">Devices<span class="caret pull-right"></span></div>
+                                    <div class="link">gérer les questions<span class="caret pull-right"></span></div>
                                     <ul class="submenu">
-                                        <li><a href="#">Tablet</a></li>
-                                        <li><a href="#">Mobile</a></li>
-                                        <li><a href="#">Desktop</a></li>
+                                         <li><a href="<?php echo $view['router']->generate('_question_add') ?>">ajouter des questions</a></li>
+                                        <li><a href="<?php echo $view['router']->generate('_question_index') ?>">vue des questions</a></li>
                                     </ul>
                                 </li>
                                 <li>

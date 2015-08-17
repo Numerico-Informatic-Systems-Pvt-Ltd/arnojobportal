@@ -1,40 +1,74 @@
 <?php
 
 namespace JobPortal\AdminBundle\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Categories
+ *
+ * @ORM\Table(name="categories")
+ * @ORM\Entity
  */
 class Categories
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
      * @var string
+     *
+     * @ORM\Column(name="category", type="string", length=255, nullable=false)
      */
     private $category;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=false)
      */
     private $description;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="status", type="boolean", nullable=false)
      */
     private $status;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="is_deleted", type="boolean", nullable=true)
      */
     private $isDeleted;
 
     /**
-     * @var integer
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="Questions", mappedBy="category")
      */
-    private $id;
+    protected $questions;
 
-
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->questions = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    public function getQuestion()    {
+        return $this->questions ;    
+        
+    }
+    
     /**
      * Set category
      *

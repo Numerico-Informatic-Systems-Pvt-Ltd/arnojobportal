@@ -6,83 +6,119 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Employers
+ *
+ * @ORM\Table(name="employers")
+ * @ORM\Entity
  */
 class Employers
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
      * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
     private $name;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
      */
     private $email;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="phone", type="string", length=255, nullable=false)
      */
     private $phone;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="address", type="text", nullable=false)
      */
     private $address;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="pin_code", type="string", length=255, nullable=false)
      */
     private $pinCode;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=255, nullable=false)
      */
     private $city;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=255, nullable=false)
      */
     private $country;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="dob", type="date", nullable=false)
      */
     private $dob;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
      */
     private $password;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="image", type="text", nullable=false)
      */
     private $image;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="forget_password_otp", type="string", length=255, nullable=false)
      */
     private $forgetPasswordOtp;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="facebook_id", type="string", length=255, nullable=false)
      */
     private $facebookId;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="status", type="boolean", nullable=false)
      */
     private $status;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="is_deleted", type="boolean", nullable=false)
      */
     private $isDeleted;
 
-    /**
-     * @var integer
-     */
-    private $id;
 
 
     /**

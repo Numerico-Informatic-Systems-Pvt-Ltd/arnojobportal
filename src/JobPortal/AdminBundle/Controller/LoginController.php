@@ -1,6 +1,7 @@
 <?php
 
 namespace JobPortal\AdminBundle\Controller;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Acme\DemoBundle\Form\ContactType;
@@ -9,8 +10,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
 
-class LoginController extends Controller {
-
+class LoginController extends Controller
+{
     public function indexAction() {
         if($_POST){
             //print_r($_POST); die;
