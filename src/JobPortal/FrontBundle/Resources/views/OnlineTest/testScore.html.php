@@ -4,7 +4,7 @@
 <div class="container-fluid main_body_bg">
 	<div class="container">
         <div class="col-lg-12 col-sm-12 result_wrap">
-        	
+            
             <div class="col-lg-9 col-sm-9">
                 <h2>Résultat de votre test</h2>
                 <div class="result">

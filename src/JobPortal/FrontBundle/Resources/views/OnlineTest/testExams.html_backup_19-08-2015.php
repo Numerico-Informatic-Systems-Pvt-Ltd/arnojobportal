@@ -36,7 +36,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="btn_next_wrap">
-                            <input type="button" id = "form_next" class="btn_next" ng-click="nextQuestion(answer.question_id);" value={{submitbuttonvalue}} />
+                            <input type="button" id = "form_next" class="btn_next" ng-click="nextQuestion();" value={{submitbuttonvalue}} />
                             <!-- <input type="submit" id = "form_submit" style ="display: none;" ng-click="nextQuestion();"  class="btn_next" value="Submit" /> -->
                         </div>
 
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="clearfix"></div>
-            <div id="question_array_id" data-locations='<?php echo $total_questions_id; ?>'></div>
+
 
         </div>
         <div class="clearfix"></div>
@@ -103,20 +103,16 @@
                     $scope.score_array = "";
                 }
                 var given_question_answer = $scope.array_questions_answer;
-                var total_question_id = $('#question_array_id').data('locations');
                 $.ajax({
                     type: "POST",
                     url: "/web/app_dev.php/testScore",
-                    data: {
-                        given_question_answer: given_question_answer,
-                        total_question_id: total_question_id,
-                    },
+                    data: {given_question_answer},
                     success: function (response) {
-                        //alert(response);
-                        self.location = "<?php echo $view['router']->generate('result_Score'); ?>";
+                        alert(response);
                     }
                 });
-            }else {
+            }
+            else {
 
                 var serialQuestion = $scope.questions.pop();
                 $scope.question = serialQuestion.question;

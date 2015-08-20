@@ -60,24 +60,30 @@ fetch_category:
     defaults: { _controller: JobPortalFrontBundle:OnlineTest:fetchCategory }
 
 begin_test:
-    path:     /beginTest
+    path:     /beginTest/{id}
     defaults: { _controller: JobPortalFrontBundle:OnlineTest:beginTest }
 
 test_exams:
-    path:     /testExams
+    path:     /testExams/{id}
     defaults: { _controller: JobPortalFrontBundle:OnlineTest:testExams }
 
 test_score:
     path:     /testScore
     defaults: { _controller: JobPortalFrontBundle:OnlineTest:testScore }
+    
+result_Score:
+    path:     /resultScore
+    defaults: { _controller: JobPortalFrontBundle:OnlineTest:resultScore }   
 
     
 answer_of_question:
     path:     /answerOfQuestion
     defaults: { _controller: JobPortalFrontBundle:OnlineTest:answerOfQuestion }
     
-
-
+search_exam:
+    path:     /searchExam
+    defaults: { _controller: JobPortalFrontBundle:OnlineTest:searchExam }
+    
 employer_register:
     path:     /employerRegister
     defaults: { _controller: JobPortalFrontBundle:Employers:employerRegister }

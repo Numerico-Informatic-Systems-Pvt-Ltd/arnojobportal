@@ -19,7 +19,7 @@
                                         <div class="collapse navbar-collapse less_pad" id="bs-example-navbar-collapse-1">
                                             <ul class="nav navbar-nav">
                                                 <li><a href="#">Home</a></li>
-                                                <li><a href="#">Categorie</a></li>
+                                                <li><a href="<?php echo $view['router']->generate('fetch_category') ?>">Categorie</a></li>
                                                 
                                                 <li><a href="<?php echo $view['router']->generate('my_skills') ?>">Mes Competences</a></li>
                                                 
@@ -30,7 +30,10 @@
                                 </nav>
                             </div>
                             <div class="col-lg-4 col-sm-4">
-                                <input type="text" class="form-control search_ico" placeholder="Rechercher un test">
+                                <form action="<?php echo $view['router']->generate('search_exam') ?>" method="GET">
+                                    <input type="submit" value="" style="width: 25px; height: 34px; background: none; border: none; position: absolute; top: 7px; left: 16px;">
+                                    <input type="text" class="form-control search_ico" placeholder="Rechercher un test" name = "search">
+                                </form>
                             </div>
                             <div class="clearfix"></div>
                         </div>

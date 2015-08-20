@@ -11,6 +11,7 @@
                     <li><a href="<?php echo $view['router']->generate('user_update') ?>">Editer le profil</a></li>
                     <li><a href="<?php echo $view['router']->generate('user_cv') ?>">Mon CV</a></li>
                     <li><a href="<?php echo $view['router']->generate('chage_password'); ?>">Changer mot de passe</a></li>
+                    <li><a href="<?php echo $view['router']->generate('fetch_category'); ?>">commencer Test</a></li>
                     <li><a href="#">Confiance et verification</a></li>
                 </ul>
             </div>

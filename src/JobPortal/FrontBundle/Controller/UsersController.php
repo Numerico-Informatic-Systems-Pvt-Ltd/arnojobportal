@@ -228,7 +228,7 @@ class UsersController extends Controller {
         if ($request->getMethod() == "POST") {
             $conn = $this->get('database_connection');
             $image = $request->files->get('image');
-            // print_r($image);die;
+             //print_r($image);die;
 
             if (($image instanceof UploadedFile) && ($image->getError() == '0')) {
                 if (($image->getSize() < 2000000)) {
@@ -241,6 +241,7 @@ class UsersController extends Controller {
                         foreach ($request->files as $uploadedFile) {
                             $directory = $_SERVER['DOCUMENT_ROOT'] . '/arnojobportal/web/uploads/users/';
                             $name_image = time() . '_' . $uploadedFile->getClientOriginalName();
+                            //print_r($name_image);die;
                             $file = $uploadedFile->move($directory, $name_image);
                         }
                     } else {
@@ -333,7 +334,12 @@ class UsersController extends Controller {
     }
 
     public function mySkillsAction() {
-        return $this->render('JobPortalFrontBundle:Users:mySkills.html.php', array());
+        $candateDetails = $this->get('session')->get('candidatedata');
+        $login_user_id = $candateDetails['login_candidate_id'];
+        $conn = $this->get('database_connection');
+        $score_status = $conn->fetchAll('SELECT c.category, c.id, sum(s.score) as score FROM categories c LEFT JOIN category_user_mappings m ON m.category_id = c.id LEFT JOIN scores s ON s.category_type = m.category_id WHERE m.user_id = '.$login_user_id.' group by  c.id');
+        //print_r($score_status); die;
+        return $this->render('JobPortalFrontBundle:Users:mySkills.html.php', array( 'scores' => $score_status ));
     }
 
     public function myCvDetailsAction(Request $request) {

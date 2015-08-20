@@ -21,26 +21,42 @@
             <div class="profile_box">
                 <h2>Mes competences</h2>
                 <div class="my_detail">
+            <?php
+                foreach( $scores as $score ){
+            ?>
                     <div class="skill_wrap">
                         <div class="col-lg-3 col-sm-3">
-                            <p>Anglais</p>
+                            <p><?php echo $score['category']; ?></p>
                         </div>
                         <div class="col-lg-5 col-sm-5">
-                            <div class="points">758points</div>
+                            <div class="points">
+                                <?php
+                                    if(!empty($score['score'])){
+                                        echo $score['score'];
+                                    }else{
+                                        echo 0;
+                                    }
+                                ?> points</div>
+                            <?php
+                                $persentage = ( $score['score'] / 10 );
+                            ?>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $persentage; ?>%;">
                                     <span class="sr-only">60% Complete</span>
                                 </div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-lg-4 col-sm-4">
-                            <input class="profile_button" type="button" value="Refaire le test >">
+                            <a href="<?php echo $view['router']->generate('begin_test',  array('id' => $score['id'])) ?>"><input class="profile_button" type="button" value="Refaire le test >"></a>
                         </div>
                         <div class="clearfix"></div>
                     </div>
-
-                    <div class="skill_wrap">
+            <?php
+                }
+                    
+            ?>
+<!--                    <div class="skill_wrap">
                         <div class="col-lg-3 col-sm-3">
                             <p>Developpement web</p>
                         </div>
@@ -57,7 +73,7 @@
                             <input class="profile_button" type="button" value="Refaire le test >">
                         </div>
                         <div class="clearfix"></div>
-                    </div>
+                    </div>-->
 
                     <div class="clearfix"></div>
                 </div>
